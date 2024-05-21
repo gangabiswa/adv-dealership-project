@@ -104,7 +104,7 @@ public class SalesContract extends Contract {
 
     @Override
     public double getTotalPrice() {
-        return getVehicleSold().getPrice() + salesTaxRate + recordingFee + processingFee;
+        return getVehicleSold() + salesTaxRate + recordingFee + processingFee;
     }
 
     @Override
@@ -112,7 +112,7 @@ public class SalesContract extends Contract {
         int numberOfPayments = 0;
         double interestRate = 0;
         if (financed) {
-            if (getVehicleSold().getPrice() >= 10000) {
+            if (getVehicleSold() >= 10000) {
                 numberOfPayments = 48;
                 interestRate = 4.25 / 1200;
             } else {
